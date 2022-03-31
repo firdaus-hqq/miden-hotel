@@ -1,0 +1,39 @@
+.text-brown {
+    color: #aa8865;
+}
+
+.text-form-brown {
+    color: #6C3D0D;
+}
+
+.bg-brown {
+    background-color: #aa8865;
+}
+
+.bg-cream {
+    background-color: #fff8f2;
+}
+
+.bg-brown:hover {
+    background-color: #886c50;
+}
+
+.active {
+    color: #aa8865 !important;
+}
+
+.rounded-20 {
+    border-radius: 20px;
+}
+
+.rounded-10 {
+    border-radius: 10px;
+}
+
+.card-brown {
+    background-color: #fff8f2;
+}
+
+.form-brown {
+    border-color: #886c50;
+}
