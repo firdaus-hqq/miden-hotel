@@ -1,4 +1,4 @@
-<footer class="bg-brown text-light" style="margin-top: 20vh">
+<footer class="bg-footer text-light" style="margin-top: 10vh">
     <div class="container">
         <div class="pt-4 pb-4 col-md-6">
             <p class="fs-14">KONTAK KAMI</p>
