@@ -1,8 +1,8 @@
 @extends('layouts.main')
 
 @section('beranda')
-    <div class="container">
-        <h2 class="text-center mt-3 text-brown"><b>Form Pemesanan</b></h2>
+    <div class="container mt-5">
+        <h2 class="text-center mt-5 pt-3 text-brown"><b>Form Pemesanan</b></h2>
         <div class="card card-brown shadow mt-3 mb-5 rounded-20">
             <div class="card-body p-4">
                 <form>

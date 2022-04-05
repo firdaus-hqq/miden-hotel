@@ -6,6 +6,12 @@
     color: #6C3D0D;
 }
 
+.btn-2 {
+    background-color: #fff8f2;
+    border: #aa8865;
+    color: #aa8865;
+}
+
 .bg-brown, .bg-footer {
     background-color: #aa8865;
 }

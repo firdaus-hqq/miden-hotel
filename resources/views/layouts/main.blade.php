@@ -16,6 +16,7 @@
     @include('partials.navbar')
 
     @yield('beranda')
+    @yield('kamar')
 
     @include('partials.footer')
 
