@@ -6,10 +6,31 @@
     color: #6C3D0D;
 }
 
+.btn-1 {
+    background-color: #aa8865;
+    color: #fff8f2;
+    border-radius: 10px;
+}
+
+.btn-1:hover {
+    background-color: #886c50;
+    color: #fff8f2;
+    border-radius: 10px;
+}
+
 .btn-2 {
     background-color: #fff8f2;
-    border: #aa8865;
+    border-color: #aa8865;
     color: #aa8865;
+    border-radius: 10px;
+}
+
+.btn-2:hover {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+    background-color: #fff8f2;
+    border-color: #886c50;
+    color: #886c50;
+    border-radius: 10px;
 }
 
 .bg-brown, .bg-footer {
