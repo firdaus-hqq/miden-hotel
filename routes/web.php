@@ -32,3 +32,7 @@ Route::get('/kamar', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+
+Route::get('/kamar_admin', function () {
+    return view('kamar_admin');
+});

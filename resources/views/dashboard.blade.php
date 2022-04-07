@@ -1,19 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.main_admin')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/custom.css">
-    @include('partials.title')
-</head>
-
-<body>
-    @include('partials.navbar_admin')
-</body>
-
-</html>
+@section('dashboard')
+    <ul class="nav nav-pills" id="pills-tab" role="tablist">
+        <div class="card card-brown nav-item rounded-10 mt-3 me-3" style="width: 16rem;">
+            <div class="card-body text-brown">
+                <h1 class="card-title">74</h1>
+                <p class="card-text">Jumlah Kamar</p>
+            </div>
+        </div>
+        <div class="card card-brown nav-item rounded-10 mt-3 me-3" style="width: 16rem;">
+            <div class="card-body text-brown">
+                <h1 class="card-title">74</h1>
+                <p class="card-text">Kamar Tersedia</p>
+            </div>
+        </div>
+        <div class="card card-brown nav-item rounded-10 mt-3 me-3" style="width: 16rem;">
+            <div class="card-body text-brown">
+                <h1 class="card-title">74</h1>
+                <p class="card-text">Jumlah Fasilitas</p>
+            </div>
+        </div>
+        <div class="card card-brown nav-item rounded-10 mt-3 me-3" style="width: 16rem;">
+            <div class="card-body text-brown">
+                <h1 class="card-title">74</h1>
+                <p class="card-text">Total Tamu yang Pernah Berkunjung</p>
+            </div>
+        </div>
+        <div class="card card-brown nav-item rounded-10 mt-3 me-3" style="width: 16rem;">
+            <div class="card-body text-brown">
+                <h1 class="card-title">74</h1>
+                <p class="card-text">Jumlah Tamu yang Sedang Berkunjung</p>
+            </div>
+        </div>
+    </ul>
+@endsection
