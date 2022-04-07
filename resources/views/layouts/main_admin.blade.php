@@ -15,10 +15,13 @@
 <body>
     @include('partials.navbar_admin')
 
-    <div class="mt-4 pt-5 container" role="tablist">
-        <h1>Dashboard</h1>
+    <div class="mt-4 pt-5 mb-5 pb-5 container" role="tablist">
+        <h2 class="text-brown">Dashboard</h2>
         @yield('dashboard')
         @yield('kamar_admin')
+        @yield('kelas_kamar')
+        @yield('fasilitas_kamar')
+        @yield('fasilitas_hotel')
     </div>
 
     @include('partials.footer_admin')

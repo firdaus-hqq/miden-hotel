@@ -19,6 +19,9 @@
                         <a class="nav-link" href="/#tentangkami">Kamar</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/#tentangkami">Kelas Kamar</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/#kamar">Fasilitas Kamar</a>
                     </li>
                     <li class="nav-item">

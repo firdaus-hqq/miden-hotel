@@ -30,9 +30,21 @@ Route::get('/kamar', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin/dashboard');
 });
 
 Route::get('/kamar_admin', function () {
-    return view('kamar_admin');
+    return view('admin/kamar_admin');
+});
+
+Route::get('/kelas_kamar', function () {
+    return view('admin/kelas_kamar');
+});
+
+Route::get('/fasilitas_kamar', function () {
+    return view('admin/fasilitas_kamar');
+});
+
+Route::get('/fasilitas_hotel', function () {
+    return view('admin/fasilitas_hotel');
 });
