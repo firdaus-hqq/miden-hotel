@@ -12,7 +12,7 @@
     @include('partials.title')
 </head>
 
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="1">
     @include('partials.navbar')
 
     @yield('beranda')

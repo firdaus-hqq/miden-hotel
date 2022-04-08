@@ -13,19 +13,19 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/#beranda">Dashboard</a>
+                        <a class="nav-link {{ ($title === "dashboard") ? 'active' : ''}} aria-current="page" href="/dashboard">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#tentangkami">Kamar</a>
+                        <a class="nav-link {{ ($title === "kamar_admin") ? 'active' : ''}}" href="/kamar_admin">Kamar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#tentangkami">Kelas Kamar</a>
+                        <a class="nav-link {{ ($title === "kelas_kamar") ? 'active' : ''}}" href="/kelas_kamar">Kelas Kamar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#kamar">Fasilitas Kamar</a>
+                        <a class="nav-link {{ ($title === "fasilitas_kamar") ? 'active' : ''}}" href="/fasilitas_kamar">Fasilitas Kamar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#fasilitas">Fasilitas Hotel</a>
+                        <a class="nav-link {{ ($title === "fasilitas_hotel") ? 'active' : ''}}" href="/fasilitas_hotel">Fasilitas Hotel</a>
                     </li>
                 </ul>
             </div>

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\TamuController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,38 +15,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('beranda');
-});
+Route::get('/', [TamuController::class, 'show_beranda']);
 
-Route::get('/form', function () {
-    return view('formpemesanan');
-});
+Route::get('/form', [TamuController::class, 'show_form']);
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/kamar', [TamuController::class, 'show_kamar']);
 
-Route::get('/kamar', function () {
-    return view('kamar');
-});
+Route::get('/login', [LoginController::class, 'show_login']);
 
-Route::get('/dashboard', function () {
-    return view('admin/dashboard');
-});
+Route::get('/dashboard', [AdminController::class, 'show_dashboard']);
 
-Route::get('/kamar_admin', function () {
-    return view('admin/kamar_admin');
-});
+Route::get('/kamar_admin', [AdminController::class, 'show_kamar_admin']);
 
-Route::get('/kelas_kamar', function () {
-    return view('admin/kelas_kamar');
-});
+Route::get('/kelas_kamar', [AdminController::class, 'show_kelas_kamar']);
 
-Route::get('/fasilitas_kamar', function () {
-    return view('admin/fasilitas_kamar');
-});
+Route::get('/fasilitas_kamar', [AdminController::class, 'show_fasilitas_kamar']);
 
-Route::get('/fasilitas_hotel', function () {
-    return view('admin/fasilitas_hotel');
-});
+Route::get('/fasilitas_hotel', [AdminController::class, 'show_fasilitas_hotel']);

@@ -17,6 +17,7 @@ class TipeKamar extends Migration
             $table->id();
             $table->string('nama_tipe');
             $table->string('deskripsi');
+            $table->integer('harga');
             $table->string('gambar');
         });
     }
