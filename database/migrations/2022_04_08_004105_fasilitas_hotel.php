@@ -15,10 +15,9 @@ class FasilitasHotel extends Migration
     {
         Schema::create('fasilitas_hotel', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('tipe_id');
-            $table->foreign('tipe_id')->references('id')->on('tipe_kamar');
-            $table->string('fasilitas');
-            $table->integer('jumlah');
+            $table->string('nama_fasilitas');
+            $table->string('deskripsi');
+            $table->string('gambar');
         });
     }
 
