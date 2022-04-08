@@ -17,7 +17,7 @@
                         </div>
                         <div class="col mb-3">
                             <label for="jmlkamar" class="form-label text-brown">Jumlah Kamar</label>
-                            <input type="number" class="form-control rounded-10 form-brown text-form-brown" id="jmlkamar">
+                            <input type="number" class="form-control rounded-10 form-brown text-form-brown" id="jmlkamar" min="1">
                         </div>
                     </div>
                     <div class="mb-3">

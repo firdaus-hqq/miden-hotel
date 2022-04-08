@@ -24,6 +24,7 @@ class CreateForm extends Migration
                 $table->string('email')->unique();
                 $table->string('no_telepon');
                 $table->string('nama_tamu');
+                $table->enum('status',['menunggu,diterima,ditolak,checkin,checkout']);
                 $table->timestamps();
 
         });
