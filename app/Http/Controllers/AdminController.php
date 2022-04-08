@@ -10,7 +10,7 @@ class AdminController extends Controller
     {
         return view(
             'admin/dashboard',
-            ["title" => "dashboard"]
+            ["title" => "Dashboard"]
         );
     }
 
@@ -18,7 +18,7 @@ class AdminController extends Controller
     {
         return view(
             'admin/kamar_admin',
-            ["title" => "kamar_admin"]
+            ["title" => "Kamar"]
         );
     }
 
@@ -26,7 +26,7 @@ class AdminController extends Controller
     {
         return view(
             'admin/kelas_kamar',
-            ["title" => "kelas_kamar"]
+            ["title" => "Kelas Kamar"]
         );
     }
 
@@ -34,7 +34,7 @@ class AdminController extends Controller
     {
         return view(
             'admin/fasilitas_kamar',
-            ["title" => "fasilitas_kamar"]
+            ["title" => "Fasilitas Kamar"]
         );
     }
 
@@ -42,7 +42,7 @@ class AdminController extends Controller
     {
         return view(
             'admin/fasilitas_hotel',
-            ["title" => "fasilitas_hotel"]
+            ["title" => "Fasilitas Hotel"]
         );
     }
 }

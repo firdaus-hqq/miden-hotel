@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\TamuController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TamuController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ResepsionisController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +34,11 @@ Route::get('/kelas_kamar', [AdminController::class, 'show_kelas_kamar']);
 Route::get('/fasilitas_kamar', [AdminController::class, 'show_fasilitas_kamar']);
 
 Route::get('/fasilitas_hotel', [AdminController::class, 'show_fasilitas_hotel']);
+
+Route::get('/dashboard_resepsionis', [ResepsionisController::class, 'show_dashboard_resepsionis']);
+
+Route::get('/ongoing', [ResepsionisController::class, 'show_ongoing']);
+
+Route::get('/pending', [ResepsionisController::class, 'show_pending']);
+
+Route::get('/history', [ResepsionisController::class, 'show_history']);

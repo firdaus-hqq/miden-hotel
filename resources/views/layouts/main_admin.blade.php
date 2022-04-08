@@ -16,7 +16,7 @@
     @include('partials.navbar_admin')
 
     <div class="mt-4 pt-5 mb-5 pb-5 container" role="tablist">
-        <h2 class="text-brown">Dashboard</h2>
+        <h2 class="text-brown">{{ $title }}</h2>
         @yield('dashboard')
         @yield('kamar_admin')
         @yield('kelas_kamar')

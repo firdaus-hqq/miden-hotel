@@ -12,20 +12,29 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link {{ ($title === "dashboard") ? 'active' : ''}} aria-current="page" href="/dashboard">Dashboard</a>
+                    {{-- <li class="nav-item">
+                        <a class="nav-link {{ ($title === "Dashboard") ? 'active' : ''}} aria-current="page" href="/dashboard">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ ($title === "kamar_admin") ? 'active' : ''}}" href="/kamar_admin">Kamar</a>
+                        <a class="nav-link {{ ($title === "Kamar") ? 'active' : ''}}" href="/kamar_admin">Kamar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ ($title === "kelas_kamar") ? 'active' : ''}}" href="/kelas_kamar">Kelas Kamar</a>
+                        <a class="nav-link {{ ($title === "Kelas Kamar") ? 'active' : ''}}" href="/kelas_kamar">Kelas Kamar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ ($title === "fasilitas_kamar") ? 'active' : ''}}" href="/fasilitas_kamar">Fasilitas Kamar</a>
+                        <a class="nav-link {{ ($title === "Fasilitas Kamar") ? 'active' : ''}}" href="/fasilitas_kamar">Fasilitas Kamar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ ($title === "fasilitas_hotel") ? 'active' : ''}}" href="/fasilitas_hotel">Fasilitas Hotel</a>
+                        <a class="nav-link {{ ($title === "Fasilitas Hotel") ? 'active' : ''}}" href="/fasilitas_hotel">Fasilitas Hotel</a>
+                    </li> --}}
+                    <li class="nav-item">
+                        <a class="nav-link {{ ($title === 'Dashboard') ? 'active' : '' }}" aria-current="page" href="/dashboard_resepsionis">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ ($title !== 'Dashboard') ? 'active' : '' }}" aria-current="page" href="/pending">Data Reservasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-1 text-white" href="/logout">Logout</a>
                     </li>
                 </ul>
             </div>

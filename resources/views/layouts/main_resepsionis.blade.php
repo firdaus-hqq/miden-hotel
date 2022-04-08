@@ -16,8 +16,9 @@
     @include('partials.navbar_admin')
 
     <div class="mt-4 pt-5 mb-5 pb-5 container" role="tablist">
-        <h2 class="text-brown">Dashboard</h2>
-        @yield('dashboard')
+        <h2 class="text-brown">{{ ($title === "Dashboard") ? 'Dashboard' : 'Data Reservasi' }}</h2>
+        @yield('dashboard_resepsionis')
+        @yield('tabel_resepsionis')
     </div>
 
     @include('partials.footer_admin')
