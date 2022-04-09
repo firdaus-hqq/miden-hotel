@@ -24,9 +24,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/#fasilitas">Fasilitas</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-1 text-white" href="/#fasilitas">Logout</a>
-                    </li>
                 </ul>
             </div>
         </div>

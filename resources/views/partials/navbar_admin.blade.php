@@ -12,9 +12,10 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    {{-- <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link {{ ($title === "Dashboard") ? 'active' : ''}} aria-current="page" href="/dashboard">Dashboard</a>
                     </li>
+                    @if (auth()->user()->role === 'admin')
                     <li class="nav-item">
                         <a class="nav-link {{ ($title === "Kamar") ? 'active' : ''}}" href="/kamar_admin">Kamar</a>
                     </li>
@@ -26,15 +27,17 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ ($title === "Fasilitas Hotel") ? 'active' : ''}}" href="/fasilitas_hotel">Fasilitas Hotel</a>
-                    </li> --}}
-                    <li class="nav-item">
-                        <a class="nav-link {{ ($title === 'Dashboard') ? 'active' : '' }}" aria-current="page" href="/dashboard_resepsionis">Dashboard</a>
                     </li>
+                    @else
                     <li class="nav-item">
                         <a class="nav-link {{ ($title !== 'Dashboard') ? 'active' : '' }}" aria-current="page" href="/pending">Data Reservasi</a>
                     </li>
+                    @endif
                     <li class="nav-item">
-                        <a class="nav-link btn btn-1 text-white" href="/logout">Logout</a>
+                        <form action="/logout" method="POST">
+                            @csrf
+                            <button type="submit" class="nav-link btn btn-1 text-white">Logout</button>
+                        </form>
                     </li>
                 </ul>
             </div>
