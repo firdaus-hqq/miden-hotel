@@ -13,11 +13,12 @@ class TipeKamar extends Migration
      */
     public function up()
     {
-        Schema::create('tipe_kamar', function (Blueprint $table) {
+        Schema::create('kamar', function (Blueprint $table) {
             $table->id();
             $table->string('nama_tipe');
             $table->string('deskripsi');
             $table->integer('harga');
+            $table->integer('jumlah');
             $table->string('gambar');
         });
     }
@@ -29,6 +30,6 @@ class TipeKamar extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipe_kamar');
+        Schema::dropIfExists('kamar');
     }
 }

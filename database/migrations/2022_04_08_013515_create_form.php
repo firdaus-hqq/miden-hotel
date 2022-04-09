@@ -14,19 +14,17 @@ class CreateForm extends Migration
     public function up()
     {
         Schema::create('form', function (Blueprint $table) {
-                $table->id();
-                $table->unsignedBigInteger('tipe_id');
-                $table->foreign('tipe_id')->references('id')->on('tipe_kamar');
-                $table->date('tgl_checkin');
-                $table->date('tgl_checkout');
-                $table->integer('jumlah_kamar');
-                $table->string('nama_pemesan');
-                $table->string('email')->unique();
-                $table->string('no_telepon');
-                $table->string('nama_tamu');
-                $table->enum('status',['menunggu,diterima,ditolak,checkin,checkout']);
-                $table->timestamps();
-
+            $table->id();
+            $table->foreignId('kamar_id');
+            $table->date('tgl_checkin');
+            $table->date('tgl_checkout');
+            $table->integer('jumlah_kamar');
+            $table->string('email')->unique();
+            $table->string('no_telepon');
+            $table->string('nama_tamu');
+            $table->integer('harga');
+            $table->enum('status', ['menunggu,checkin,checkout']);
+            $table->timestamps();
         });
     }
 

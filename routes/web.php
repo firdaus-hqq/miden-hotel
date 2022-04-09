@@ -29,20 +29,23 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 
 Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/dashboard', [AdminController::class, 'show_dashboard'])->middleware('auth');
 
-Route::get('/kamar_admin', [AdminController::class, 'show_kamar_admin'])->middleware('auth');
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/dashboard', [AdminController::class, 'show_dashboard']);
 
-Route::get('/kelas_kamar', [AdminController::class, 'show_kelas_kamar'])->middleware('auth');
+    Route::get('/kamar_admin', [AdminController::class, 'show_kamar_admin']);
 
-Route::get('/fasilitas_kamar', [AdminController::class, 'show_fasilitas_kamar'])->middleware('auth');
+    Route::get('/kelas_kamar', [AdminController::class, 'show_kelas_kamar']);
 
-Route::get('/fasilitas_hotel', [AdminController::class, 'show_fasilitas_hotel'])->middleware('auth');
+    Route::get('/fasilitas_kamar', [AdminController::class, 'show_fasilitas_kamar']);
 
-Route::get('/dashboard_resepsionis', [ResepsionisController::class, 'show_dashboard_resepsionis'])->middleware('auth');
+    Route::get('/fasilitas_hotel', [AdminController::class, 'show_fasilitas_hotel']);
 
-Route::get('/ongoing', [ResepsionisController::class, 'show_ongoing'])->middleware('auth');
+    Route::get('/dashboard_resepsionis', [ResepsionisController::class, 'show_dashboard_resepsionis']);
 
-Route::get('/pending', [ResepsionisController::class, 'show_pending'])->middleware('auth');
+    Route::get('/ongoing', [ResepsionisController::class, 'show_ongoing']);
 
-Route::get('/history', [ResepsionisController::class, 'show_history'])->middleware('auth');
+    Route::get('/pending', [ResepsionisController::class, 'show_pending']);
+
+    Route::get('/history', [ResepsionisController::class, 'show_history']);
+});

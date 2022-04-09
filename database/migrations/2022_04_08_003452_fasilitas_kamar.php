@@ -15,8 +15,7 @@ class FasilitasKamar extends Migration
     {
         Schema::create('fasilitas_kamar', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('tipe_id');
-            $table->foreign('tipe_id')->references('id')->on('tipe_kamar');
+            $table->foreignId('kamar_id');
             $table->string('fasilitas');
             $table->integer('jumlah');
         });

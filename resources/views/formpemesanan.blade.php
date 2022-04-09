@@ -5,7 +5,7 @@
         <h2 class="text-center mt-5 pt-3 text-brown"><b>Form Pemesanan</b></h2>
         <div class="card card-brown shadow mt-3 mb-5 rounded-20">
             <div class="card-body p-4">
-                <form>
+                <form action="" method="">
                     <div class="row g-3 align-items-center">
                         <div class="col mb-3">
                             <label for="tglcin" class="form-label text-brown">Tanggal Check In</label>
@@ -21,8 +21,8 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="nama_pemesan" class="form-label text-brown">Nama Pemesan</label>
-                        <input type="text" class="form-control rounded-10 form-brown" id="nama_pemesan">
+                        <label for="nama_tamu" class="form-label text-brown">Nama Tamu</label>
+                        <input type="text" class="form-control rounded-10 form-brown" id="nama_tamu">
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label text-brown">Email</label>
@@ -31,10 +31,6 @@
                     <div class="mb-3">
                         <label for="no_telp" class="form-label text-brown">Nomor Telepon</label>
                         <input type="number" class="form-control rounded-10 form-brown" id="no_telp">
-                    </div>
-                    <div class="mb-3">
-                        <label for="nama_tamu" class="form-label text-brown">Nama Tamu</label>
-                        <input type="text" class="form-control rounded-10 form-brown" id="nama_tamu">
                     </div>
                     <div class="mb-3">
                         <label for="tipe_kamar" class="form-label text-brown">Tipe Kamar</label>
