@@ -66,7 +66,7 @@ class FormController extends Controller
 
         Form::create($validatedData);
 
-        return redirect('/resi');
+        return redirect('/resi')->with('success', 'Pemesanan berhasil! Silakan cetak resi untuk diberikan kepada resepsionis saat check in.');
     }
 
     /**

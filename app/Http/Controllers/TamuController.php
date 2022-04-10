@@ -17,4 +17,8 @@ class TamuController extends Controller
     public function show_kamar() {
         return view('kamar');
     }
+
+    public function show_resi() {
+        return view('resi');
+    }
 }
