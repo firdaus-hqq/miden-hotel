@@ -14,4 +14,5 @@ class FasilitasKamar extends Model
     public function Kamar() {
         return $this->belongsTo(Kamar::class);
     }
+    public $table = "fasilitas_kamar";
 }

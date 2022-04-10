@@ -23,7 +23,7 @@ class CreateForm extends Migration
             $table->string('no_telepon');
             $table->string('nama_tamu');
             $table->integer('harga');
-            $table->enum('status', ['menunggu,checkin,checkout']);
+            $table->enum('status', ['menunggu','checkin','checkout']);
             $table->timestamps();
         });
     }

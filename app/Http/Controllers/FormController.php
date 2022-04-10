@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Form;
+use App\Models\Kamar;
+use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
+use SebastianBergmann\Diff\Diff;
+use DateTime;
 
 class FormController extends Controller
 {
@@ -14,7 +18,10 @@ class FormController extends Controller
      */
     public function index()
     {
-        //
+        return view('resepsionis.pending', [
+            'forms' => Form::where('status', 'menunggu')->get(),
+            "title" => "Pending"
+        ]);
     }
 
     /**
@@ -24,7 +31,9 @@ class FormController extends Controller
      */
     public function create()
     {
-        //
+        return view('formpemesanan', [
+            'kamar' => Kamar::all()
+        ]);
     }
 
     /**
@@ -35,7 +44,29 @@ class FormController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tgl_checkin = $request->tgl_checkin;
+        $tgl_checkout = $request->tgl_checkout;
+        $datetime1 = new DateTime($tgl_checkin);
+        $datetime2 = new DateTime($tgl_checkout);
+        $jumlah_hari = $datetime1->diff($datetime2);
+        $days = $jumlah_hari->format('%a');
+        $harga = $days * $request->jumlah_kamar * 500000;
+
+        $validatedData = $request->validate([
+            'tgl_checkin' => 'required|date',
+            'tgl_checkout' => 'required|date',
+            'jumlah_kamar' => 'required|integer',
+            'nama_tamu' => 'required|max:255',
+            'email' => 'required|email:dns',
+            'no_telepon' => 'required|numeric',
+            'kamar_id' => 'required'
+        ]);
+
+        $validatedData['harga'] = $harga;
+
+        Form::create($validatedData);
+
+        return redirect('/resi');
     }
 
     /**

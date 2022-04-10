@@ -11,7 +11,9 @@ class Form extends Model
 
     protected $guarded = ['id'];
 
-    public function Kamar() {
+    public function kamar() {
         return $this->belongsTo(Kamar::class);
     }
+
+    public $table = "form";
 }

@@ -18,6 +18,7 @@ class FasilitasKamar extends Migration
             $table->foreignId('kamar_id');
             $table->string('fasilitas');
             $table->integer('jumlah');
+            $table->timestamps();
         });
     }
 

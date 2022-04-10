@@ -17,6 +17,7 @@
 
     @yield('beranda')
     @yield('kamar')
+    @yield('form')
 
     @include('partials.footer')
 

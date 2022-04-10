@@ -18,4 +18,5 @@ class Kamar extends Model
     public function form() {
         return $this->hasMany(Form::class);
     }
+    public $table = "kamar";
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\TamuController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
@@ -19,7 +20,7 @@ use App\Http\Controllers\ResepsionisController;
 
 Route::get('/', [TamuController::class, 'show_beranda']);
 
-Route::get('/form', [TamuController::class, 'show_form']);
+Route::get('/form', [FormController::class, 'create']);
 
 Route::get('/kamar', [TamuController::class, 'show_kamar']);
 
@@ -29,6 +30,7 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 
 Route::post('/logout', [LoginController::class, 'logout']);
 
+Route::post('/submit_form', [FormController::class, 'store']);
 
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard', [AdminController::class, 'show_dashboard']);
@@ -45,7 +47,9 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::get('/ongoing', [ResepsionisController::class, 'show_ongoing']);
 
-    Route::get('/pending', [ResepsionisController::class, 'show_pending']);
+    // Route::get('/pending', [ResepsionisController::class, 'show_pending']);
+
+    Route::resource('/pending', FormController::class);
 
     Route::get('/history', [ResepsionisController::class, 'show_history']);
 });

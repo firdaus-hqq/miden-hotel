@@ -21,7 +21,6 @@
                 <thead>
                     <tr>
                         <th scope="col">No.</th>
-                        <th scope="col">Nama Pemesan</th>
                         <th scope="col">Nama Tamu</th>
                         <th scope="col">Tipe</th>
                         <th scope="col">Jumlah Kamar</th>
@@ -33,21 +32,22 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($forms as $form)
                     <tr>
-                        <th class="align-middle" scope="row">1</th>
-                        <td class="align-middle">Adi</td>
-                        <td class="align-middle">Budi</td>
-                        <td class="align-middle">Deluxe</td>
-                        <td class="align-middle">1</td>
-                        <td class="align-middle">2022-04-01</td>
-                        <td class="align-middle">2022-04-02</td>
-                        <td class="align-middle">adi@mail.com</td>
-                        <td class="align-middle">0812394848393</td>
+                        <th class="align-middle" scope="row">{{ $loop->iteration }}</th>
+                        <td class="align-middle">{{ $form->nama_tamu }}</td>
+                        <td class="align-middle">{{ $form->kamar_id}}</td>
+                        <td class="align-middle">{{ $form->jumlah_kamar }}</td>
+                        <td class="align-middle">{{ $form->tgl_checkin }}</td>
+                        <td class="align-middle">{{ $form->tgl_checkout }}</td>
+                        <td class="align-middle">{{ $form->email }}</td>
+                        <td class="align-middle">{{ $form->no_telepon }}</td>
                         <td class="align-middle">
                             <a href="" class="btn btn-1 text-white rounded-10">Check In</a>
                             <a href="" class="btn btn-2 text-brown rounded-10">Tolak</a>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

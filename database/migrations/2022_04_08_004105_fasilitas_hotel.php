@@ -18,6 +18,7 @@ class FasilitasHotel extends Migration
             $table->string('nama_fasilitas');
             $table->string('deskripsi');
             $table->string('gambar');
+            $table->timestamps();
         });
     }
 
