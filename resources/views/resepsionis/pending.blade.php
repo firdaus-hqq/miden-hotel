@@ -7,16 +7,15 @@
             {{ session('success') }}
          </div>
       @endif
-      <form method="GET">
+      <form action="/pending/cari" method="GET">
          <div class="mb-3">
             <label for="cari" class="form-label text-brown">Cari</label>
             <div class="d-flex flex-row">
                <div class="d-flex flex-row">
-                  <input type="text" class="form-control rounded-10 form-brown me-1" id="cari"
+                  <input type="text" class="form-control rounded-10 form-brown me-1" name="cari" id="cari"
                      aria-describedby="button-addon2">
                   <button class="btn btn-1 me-1" type="button" id="button-addon2">Cari</button>
                </div>
-               <button class="btn btn-1" type="button" id="button-addon2">+ Tambah Data</button>
             </div>
          </div>
       </form>
@@ -49,7 +48,7 @@
                            <td class="align-middle">{{ $form->email }}</td>
                            <td class="align-middle">{{ $form->no_telepon }}</td>
                            <td class="align-middle">
-                              <form action="/pending/update/{{ $form->id }}" method="POST">
+                              <form action="/pending/update/{{ $form->id }}" method="POST" class="d-inline">
                                  @csrf
                                  <button class="btn btn-1 text-white rounded-10">Check
                                     In</button>

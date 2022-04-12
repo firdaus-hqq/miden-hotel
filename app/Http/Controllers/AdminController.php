@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FasilitasHotel;
+use App\Models\Form;
 use Illuminate\Http\Request;
+use App\Models\Kamar;
 
 class AdminController extends Controller
 {
@@ -10,7 +13,14 @@ class AdminController extends Controller
     {
         return view(
             'admin/dashboard',
-            ["title" => "Dashboard"]
+            [
+                "title" => "Dashboard",
+                'kamar' => Kamar::all(),
+                'fasilitas' => FasilitasHotel::all(),
+                'ongoing' => Form::where('status', 'checkin')->get(),
+                'history' => Form::where('status', 'checkout')->get(),
+                'available' => count(Kamar::all()) - count(Form::where('status', 'checkin')->get())
+            ]
         );
     }
 

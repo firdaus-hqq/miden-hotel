@@ -13,7 +13,7 @@
          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                <li class="nav-item">
-                  <a class="nav-link {{ $title === 'Dashboard' ? 'active' : '' }} aria-current=" page"
+                  <a class="nav-link {{ $title === 'Dashboard' ? 'active' : '' }}" aria-current="page"
                      href="/dashboard">Dashboard</a>
                </li>
                @if (auth()->user()->role === 'admin')
@@ -37,7 +37,8 @@
                <li class="nav-item">
                   <form action="/logout" method="POST">
                      @csrf
-                     <button type="submit" class="nav-link btn btn-1 text-white">Logout</button>
+                     <button type="submit" class="nav-link btn btn-1 text-white"
+                        onclick="return confirm('Apakah Anda yakin akan logout?')">Logout</button>
                   </form>
                </li>
             </ul>

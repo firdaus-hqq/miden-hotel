@@ -2,6 +2,11 @@
 
 @section('ongoing')
    <div>
+      @if (session()->has('success'))
+         <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+         </div>
+      @endif
       <form method="GET">
          <div class="mb-3">
             <label for="cari" class="form-label text-brown">Cari</label>
@@ -11,7 +16,6 @@
                      aria-describedby="button-addon2">
                   <button class="btn btn-1 me-1" type="button" id="button-addon2">Cari</button>
                </div>
-               <button class="btn btn-1" type="button" id="button-addon2">+ Tambah Data</button>
             </div>
          </div>
       </form>
@@ -44,10 +48,10 @@
                            <td class="align-middle">{{ $guest->email }}</td>
                            <td class="align-middle">{{ $guest->no_telepon }}</td>
                            <td class="align-middle">
-                              <form action="/ongoing/update/{{ $form->id }}" method="POST">
+                              <form action="/ongoing/update/{{ $guest->id }}" method="POST">
                                  @csrf
                                  <button class="btn btn-1 text-white rounded-10">Check
-                                    In</button>
+                                    Out</button>
                               </form>
                            </td>
                         </tr>

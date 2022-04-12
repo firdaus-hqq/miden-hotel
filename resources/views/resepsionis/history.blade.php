@@ -2,6 +2,11 @@
 
 @section('history')
    <div>
+      @if (session()->has('success'))
+         <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+         </div>
+      @endif
       <form method="GET">
          <div class="mb-3">
             <label for="cari" class="form-label text-brown">Cari</label>
@@ -11,7 +16,6 @@
                      aria-describedby="button-addon2">
                   <button class="btn btn-1 me-1" type="button" id="button-addon2">Cari</button>
                </div>
-               <button class="btn btn-1" type="button" id="button-addon2">+ Tambah Data</button>
             </div>
          </div>
       </form>
@@ -44,7 +48,11 @@
                            <td class="align-middle">{{ $history->email }}</td>
                            <td class="align-middle">{{ $history->no_telepon }}</td>
                            <td class="align-middle">
-                              <a href="" class="btn btn-1 text-white rounded-10">Hapus</a>
+                              <form action="/history/delete/{{ $history->id }}" class="d-inline">
+                                 @csrf
+                                 <button type="submit" class="btn btn-1 text-brown rounded-10"
+                                    onclick="return confirm('Apakah Anda yakin akan menghapus riwayat tamu ini?')">Hapus</button>
+                              </form>
                            </td>
                         </tr>
                      @endforeach

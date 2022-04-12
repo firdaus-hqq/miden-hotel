@@ -29,22 +29,29 @@
                   </tr>
                </thead>
                <tbody>
-                  <tr>
-                     <td class="align-middle" scope="row">1</td>
-                     <td class="align-middle">Deluxe</td>
-                     <td class="align-middle">Menampilkan ruang 32 meter persegi yang nyaman, berfungsi sebagai tipe
-                        kamar yang sempurna untuk tamu yang ingin menikmati keseimbangan sempurna antara akomodasi
-                        berkualitas tinggi dan penawaran bernilai tinggi selama kunjungan mereka di kota ini</td>
-                     <td class="align-middle">Rp.500000</td>
-                     <td class="align-middle">10</td>
-                     <td class="align-middle">
-                        <img src="images/deluxeraw.jpg" class="img-fluid" alt="" style="max-width: 150px">
-                     </td>
-                     <td>
-                        <a href="" class="btn btn-1 text-white rounded-10">Edit</a>
-                        <a href="" class="btn btn-2 text-brown rounded-10">Delete</a>
-                     </td>
-                  </tr>
+                  @if (count($kamar) > 0)
+                     @foreach ($kamar as $kamar)
+                        <tr>
+                           <td class="align-middle" scope="row">{{ $loop->iteration }}</td>
+                           <td class="align-middle">{{ $kamar->nama_tipe }}</td>
+                           <td class="align-middle">{{ $kamar->deskripsi }}</td>
+                           <td class="align-middle">{{ $kamar->harga }}</td>
+                           <td class="align-middle">{{ $kamar->jumlah }}</td>
+                           <td class="align-middle">
+                              <img src="images/{{ $kamar->gambar }}" class="img-fluid" alt=""
+                                 style="max-width: 150px">
+                           </td>
+                           <td>
+                              <a href="" class="btn btn-1 text-white rounded-10 col-10">Edit</a>
+                              <a href="" class="btn btn-2 text-brown rounded-10 mt-2">Delete</a>
+                           </td>
+                        </tr>
+                     @endforeach
+                  @else
+                     <tr>
+                        <td colspan="5" class="text-center">Tidak Ada Data</td>
+                     </tr>
+                  @endif
                </tbody>
             </table>
          </div>

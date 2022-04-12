@@ -44,7 +44,8 @@
                      required>
                </div>
                <div class="mb-3">
-                  <button type="submit" class="btn bg-brown text-white rounded-10 float-end form-control">Login</button>
+                  <button type="submit"
+                     class="btn btn-2 bg-brown text-white rounded-10 float-end form-control">Login</button>
                </div>
             </form>
          </div>

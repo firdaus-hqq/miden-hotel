@@ -28,16 +28,24 @@
                   </tr>
                </thead>
                <tbody>
-                  <tr>
-                     <th class="align-middle" scope="row">1</th>
-                     <td class="align-middle">Deluxe</td>
-                     <td class="align-middle">Kasur Burik</td>
-                     <td class="align-middle">2</td>
-                     <td class="align-middle">
-                        <a href="" class="btn btn-1 text-white rounded-10">Edit</a>
-                        <a href="" class="btn btn-2 text-brown rounded-10">Delete</a>
-                     </td>
-                  </tr>
+                  @if (count($fasilitas_kamar) > 0)
+                     @foreach ($fasilitas_kamar as $item)
+                        <tr>
+                           <th class="align-middle" scope="row">{{ $loop->iteration }}</th>
+                           <td class="align-middle">{{ $item->kamar_id }}</td>
+                           <td class="align-middle">{{ $item->fasilitas }}</td>
+                           <td class="align-middle">{{ $item->jumlah }}</td>
+                           <td class="align-middle">
+                              <a href="" class="btn btn-1 text-white rounded-10">Edit</a>
+                              <a href="" class="btn btn-2 text-brown rounded-10">Delete</a>
+                           </td>
+                        </tr>
+                     @endforeach
+                  @else
+                     <tr>
+                        <td colspan="5" class="text-center">Tidak Ada Data</td>
+                     </tr>
+                  @endif
                </tbody>
             </table>
          </div>

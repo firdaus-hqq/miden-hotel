@@ -129,7 +129,7 @@ class FormController extends Controller
         $form->status   = 'checkout';
         $form->save();
 
-        return redirect('/pending')->with('success', 'Tamu berhasil check out!');
+        return redirect('/ongoing')->with('success', 'Tamu berhasil check out!');
     }
 
     /**
@@ -150,5 +150,25 @@ class FormController extends Controller
         $form->delete();
 
         return redirect('/pending')->with('success', 'Tamu berhasil ditolak!');
+    }
+
+    public function hapus_history($id)
+    {
+        $form   = Form::find($id);
+        $form->delete();
+
+        return redirect('/history')->with('success', 'History berhasil dihapus!');
+    }
+
+    public function cari(Request $request)
+    {
+        // menangkap data pencarian
+        $cari = $request->cari;
+
+        // mengambil data dari table form sesuai pencarian data
+        $form = Form::where('status', 'menunggu' and 'nama_tamu', 'like', "%" . $cari . "%")->paginate();
+
+        // mengirim data form ke view index
+        return view('resepsionis.pending', ['form' => $form]);
     }
 }

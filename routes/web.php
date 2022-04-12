@@ -4,8 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\TamuController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\KamarController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ResepsionisController;
+use App\Http\Controllers\FasilitasHotelController;
+use App\Http\Controllers\FasilitasKamarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,13 +40,11 @@ Route::get('/resi', [TamuController::class, 'show_resi']);
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [AdminController::class, 'show_dashboard']);
 
-    Route::get('/kamar_admin', [AdminController::class, 'show_kamar_admin']);
+    Route::resource('/kamar_admin', KamarController::class);
 
-    Route::get('/kelas_kamar', [AdminController::class, 'show_kelas_kamar']);
+    Route::resource('/fasilitas_kamar', FasilitasKamarController::class);
 
-    Route::get('/fasilitas_kamar', [AdminController::class, 'show_fasilitas_kamar']);
-
-    Route::get('/fasilitas_hotel', [AdminController::class, 'show_fasilitas_hotel']);
+    Route::resource('/fasilitas_hotel', FasilitasHotelController::class);
 
     //     Route::get('/dashboard_resepsionis', [ResepsionisController::class, 'show_dashboard_resepsionis']);
 
@@ -59,5 +60,9 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::post('pending/update/{id}', [FormController::class, 'update']);
 
+    Route::get('/pending/cari', [FormController::class, 'cari']);
+
     Route::get('/history', [FormController::class, 'history']);
+
+    Route::get('history/delete/{id}', [FormController::class, 'hapus_history']);
 });
