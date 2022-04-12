@@ -32,7 +32,7 @@
                   </tr>
                </thead>
                <tbody>
-                  @if (count($guests) > 1)
+                  @if (count($guests) > 0)
                      @foreach ($guests as $guest)
                         <tr>
                            <th class="align-middle" scope="row">{{ $loop->iteration }}</th>
@@ -44,7 +44,11 @@
                            <td class="align-middle">{{ $guest->email }}</td>
                            <td class="align-middle">{{ $guest->no_telepon }}</td>
                            <td class="align-middle">
-                              <a href="" class="btn btn-1 text-white rounded-10">Check Out</a>
+                              <form action="/ongoing/update/{{ $form->id }}" method="POST">
+                                 @csrf
+                                 <button class="btn btn-1 text-white rounded-10">Check
+                                    In</button>
+                              </form>
                            </td>
                         </tr>
                      @endforeach

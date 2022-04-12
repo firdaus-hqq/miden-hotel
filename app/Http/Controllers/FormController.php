@@ -114,9 +114,22 @@ class FormController extends Controller
      * @param  \App\Models\Form  $form
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Form $form)
+    public function update($id)
     {
-        //
+        $form           = Form::find($id);
+        $form->status   = 'checkin';
+        $form->save();
+
+        return redirect('/pending')->with('success', 'Tamu berhasil check in!');
+    }
+
+    public function update_ongoing($id)
+    {
+        $form           = Form::find($id);
+        $form->status   = 'checkout';
+        $form->save();
+
+        return redirect('/pending')->with('success', 'Tamu berhasil check out!');
     }
 
     /**
@@ -127,6 +140,15 @@ class FormController extends Controller
      */
     public function destroy(Form $form)
     {
-        //
+        Form::destroy($form->id);
+        return redirect('/pending')->with('success', 'Tamu berhasil ditolak!');
+    }
+
+    public function hapus($id)
+    {
+        $form   = Form::find($id);
+        $form->delete();
+
+        return redirect('/pending')->with('success', 'Tamu berhasil ditolak!');
     }
 }

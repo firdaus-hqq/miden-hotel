@@ -49,9 +49,15 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/ongoing', [FormController::class, 'ongoing']);
 
+    Route::post('ongoing/update/{id}', [FormController::class, 'update_ongoing']);
+
     // Route::get('/pending', [ResepsionisController::class, 'show_pending']);
 
     Route::resource('/pending', FormController::class);
+
+    Route::get('pending/delete/{id}', [FormController::class, 'hapus']);
+
+    Route::post('pending/update/{id}', [FormController::class, 'update']);
 
     Route::get('/history', [FormController::class, 'history']);
 });

@@ -32,7 +32,7 @@
                   </tr>
                </thead>
                <tbody>
-                  @if (count($histories) > 1)
+                  @if (count($histories) > 0)
                      @foreach ($histories as $history)
                         <tr>
                            <th class="align-middle" scope="row">{{ $loop->iteration }}</th>

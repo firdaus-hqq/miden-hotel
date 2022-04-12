@@ -2,6 +2,11 @@
 
 @section('pending')
    <div>
+      @if (session()->has('success'))
+         <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+         </div>
+      @endif
       <form method="GET">
          <div class="mb-3">
             <label for="cari" class="form-label text-brown">Cari</label>
@@ -32,7 +37,7 @@
                   </tr>
                </thead>
                <tbody>
-                  @if (count($forms) > 1)
+                  @if (count($forms) > 0)
                      @foreach ($forms as $form)
                         <tr>
                            <th class="align-middle" scope="row">{{ $loop->iteration }}</th>
@@ -44,8 +49,16 @@
                            <td class="align-middle">{{ $form->email }}</td>
                            <td class="align-middle">{{ $form->no_telepon }}</td>
                            <td class="align-middle">
-                              <a href="" class="btn btn-1 text-white rounded-10">Check In</a>
-                              <a href="" class="btn btn-2 text-brown rounded-10">Tolak</a>
+                              <form action="/pending/update/{{ $form->id }}" method="POST">
+                                 @csrf
+                                 <button class="btn btn-1 text-white rounded-10">Check
+                                    In</button>
+                              </form>
+                              <form action="/pending/delete/{{ $form->id }}" class="d-inline">
+                                 @csrf
+                                 <button type="submit" class="btn btn-2 text-brown rounded-10"
+                                    onclick="return confirm('Apakah Anda yakin akan menolak tamu ini?')">Tolak</button>
+                              </form>
                            </td>
                         </tr>
                      @endforeach
