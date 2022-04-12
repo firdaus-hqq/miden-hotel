@@ -24,6 +24,22 @@ class FormController extends Controller
         ]);
     }
 
+    public function ongoing()
+    {
+        return view('resepsionis.ongoing', [
+            'guests' => Form::where('status', 'checkin')->get(),
+            "title" => "On Going"
+        ]);
+    }
+
+    public function history()
+    {
+        return view('resepsionis.history', [
+            'histories' => Form::where('status', 'checkout')->get(),
+            "title" => "History"
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -56,8 +72,8 @@ class FormController extends Controller
             'tgl_checkin' => 'required|date',
             'tgl_checkout' => 'required|date',
             'jumlah_kamar' => 'required|integer',
-            'nama_tamu' => 'required|max:255',
-            'email' => 'required|email:dns',
+            'nama_tamu' => 'required',
+            'email' => 'required',
             'no_telepon' => 'required|numeric',
             'kamar_id' => 'required'
         ]);

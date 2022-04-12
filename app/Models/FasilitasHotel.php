@@ -10,5 +10,6 @@ class FasilitasHotel extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-    public $table = "fasilitas_hotel";
+
+    public $table = 'fasilitas_hotel';
 }

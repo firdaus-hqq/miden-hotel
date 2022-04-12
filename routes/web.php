@@ -34,7 +34,7 @@ Route::post('/submit_form', [FormController::class, 'store']);
 
 Route::get('/resi', [TamuController::class, 'show_resi']);
 
-Route::group(['middleware' => ['auth']], function() {
+Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [AdminController::class, 'show_dashboard']);
 
     Route::get('/kamar_admin', [AdminController::class, 'show_kamar_admin']);
@@ -45,13 +45,13 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::get('/fasilitas_hotel', [AdminController::class, 'show_fasilitas_hotel']);
 
-    Route::get('/dashboard_resepsionis', [ResepsionisController::class, 'show_dashboard_resepsionis']);
+    //     Route::get('/dashboard_resepsionis', [ResepsionisController::class, 'show_dashboard_resepsionis']);
 
-    Route::get('/ongoing', [ResepsionisController::class, 'show_ongoing']);
+    Route::get('/ongoing', [FormController::class, 'ongoing']);
 
     // Route::get('/pending', [ResepsionisController::class, 'show_pending']);
 
     Route::resource('/pending', FormController::class);
 
-    Route::get('/history', [ResepsionisController::class, 'show_history']);
+    Route::get('/history', [FormController::class, 'history']);
 });

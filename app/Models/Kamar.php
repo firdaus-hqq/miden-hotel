@@ -11,12 +11,5 @@ class Kamar extends Model
 
     protected $guarded = ['id'];
 
-    public function fasilitasKamar() {
-        return $this->hasMany(FasilitasKamar::class);
-    }
-
-    public function form() {
-        return $this->hasMany(Form::class);
-    }
     public $table = "kamar";
 }
