@@ -22,6 +22,7 @@
         @yield('kelas_kamar')
         @yield('fasilitas_kamar')
         @yield('fasilitas_hotel')
+        @yield('tambah_kamar')
     </div>
 
     @include('partials.footer_admin')

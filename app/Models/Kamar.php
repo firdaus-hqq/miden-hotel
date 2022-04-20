@@ -11,5 +11,12 @@ class Kamar extends Model
 
     protected $guarded = ['id'];
 
+    protected $primaryKey = 'id';
+
     public $table = "kamar";
+
+    public function kamarReservasi()
+    {
+        return $this->hasMany('App\Models\Kamar');
+    }
 }

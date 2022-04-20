@@ -41,7 +41,7 @@
                         <tr>
                            <th class="align-middle" scope="row">{{ $loop->iteration }}</th>
                            <td class="align-middle">{{ $form->nama_tamu }}</td>
-                           <td class="align-middle">{{ $form->kamar_id }}</td>
+                           <td class="align-middle">{{ $form->kamars->nama_tipe }}</td>
                            <td class="align-middle">{{ $form->jumlah_kamar }}</td>
                            <td class="align-middle">{{ $form->tgl_checkin }}</td>
                            <td class="align-middle">{{ $form->tgl_checkout }}</td>

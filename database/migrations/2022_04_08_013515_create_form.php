@@ -15,7 +15,8 @@ class CreateForm extends Migration
     {
         Schema::create('form', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kamar_id');
+            $table->unsignedBigInteger('kamar_id');
+            $table->foreign('kamar_id')->references('id')->on('kamar');
             $table->date('tgl_checkin');
             $table->date('tgl_checkout');
             $table->integer('jumlah_kamar');
@@ -23,7 +24,7 @@ class CreateForm extends Migration
             $table->string('no_telepon');
             $table->string('nama_tamu');
             $table->integer('harga');
-            $table->enum('status', ['menunggu','checkin','checkout']);
+            $table->enum('status', ['menunggu', 'checkin', 'checkout']);
             $table->timestamps();
         });
     }
