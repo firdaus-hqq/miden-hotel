@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kamar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class TamuController extends Controller
 {
     public function show_beranda()
     {
-        return view('beranda');
+        return view('beranda', [
+            'kamar' => Kamar::all()
+        ]);
     }
 
     public function show_form()
