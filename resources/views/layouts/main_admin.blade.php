@@ -24,6 +24,7 @@
         @yield('fasilitas_hotel')
         @yield('tambah_kamar')
         @yield('edit_kamar')
+        @yield('tambah_fasilitas_hotel')
     </div>
 
     @include('partials.footer_admin')

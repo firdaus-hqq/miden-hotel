@@ -22,8 +22,7 @@
                             <label for="deskripsi" class="form-label text-brown">Deskripsi</label>
                             <textarea type="deskripsi" name="deskripsi"
                                 class="@error('deskripsi') is-invalid @enderror form-control rounded-10 form-brown"
-                                style="height: 150px" id="deskripsi" required
-                                value="{{ old('deskripsi') }}"></textarea>
+                                style="height: 150px" id="deskripsi" required>{{ old('deskripsi') }}</textarea>
                             @error('deskripsi')
                                 <div class="invalid-feedback">
                                     {{ $message }}

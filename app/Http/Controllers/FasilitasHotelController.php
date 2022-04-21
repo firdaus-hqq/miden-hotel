@@ -30,7 +30,9 @@ class FasilitasHotelController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.tambah_fasilitas_hotel', [
+            "title" => "Tambah Fasilitas Hotel"
+        ]);
     }
 
     /**
@@ -41,7 +43,24 @@ class FasilitasHotelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->hasFile('gambar')) {
+            $file = $request->file('gambar');
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+
+            $validatedData = $request->validate([
+                'nama_fasilitas' => 'required',
+                'deskripsi' => 'required',
+                'gambar' => 'mimes:jpeg,bmp,png'
+            ]);
+
+            $validatedData['gambar'] = $filename;
+
+            FasilitasHotel::create($validatedData);
+
+            $file->move(public_path('admin/images'), $filename);
+        }
+
+        return redirect('/fasilitas_hotel')->with('success', 'Tambah fasilitas hotel berhasil!');
     }
 
     /**
@@ -63,7 +82,10 @@ class FasilitasHotelController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.edit_fasilitas_hotel', [
+            "fasilitas_hotel" => FasilitasHotel::find($id),
+            "title" => "Edit Fasilitas Hotel"
+        ]);
     }
 
     /**
@@ -75,7 +97,26 @@ class FasilitasHotelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $fasilitas_hotel = FasilitasHotel::find($id);
+        if($request->hasFile('gambar')){
+
+            $request->validate([
+                'gambar' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
+            ]);
+
+            $file = $request->file('gambar');
+            $filename = date('YmdHi').$file->getClientOriginalName();
+
+            $fasilitas_hotel->gambar = $filename;
+
+            $file->move(public_path('admin/images'), $filename);
+        }
+
+        $fasilitas_hotel->nama_fasilitas = $request->nama_fasilitas;
+        $fasilitas_hotel->deskripsi = $request->deskripsi;
+        $fasilitas_hotel->save();
+
+        return redirect('/fasilitas_hotel')->with('success', 'Fasilitas hotel berhasil diedit!');
     }
 
     /**
@@ -86,6 +127,8 @@ class FasilitasHotelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $fasilitas_hotel = FasilitasHotel::find($id);
+        $fasilitas_hotel->delete();
+        return redirect('/fasilitas_hotel')->with('success', 'Fasilitas hotel berhasil dihapus!');
     }
 }

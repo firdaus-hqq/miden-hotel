@@ -2,35 +2,21 @@
    <h1 class="text-center text-brown mt-5 pt-3">Fasilitas</h1>
    <div id="carouselExampleCaptions" class="carousel slide mt-3" data-bs-ride="carousel">
       <div class="carousel-indicators">
-         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
-         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
+          @foreach ($fasilitas as $item)
+         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ $loop->index }}" class="{{ $loop->index === 0 ? 'active':'' }}"
+            aria-current="true" aria-label="Slide {{ $loop->iteration }}"></button>
+            @endforeach
       </div>
       <div class="carousel-inner rounded-20">
-         <div class="carousel-item active">
-            <img src="images/fitnesscenterraw.png" class="d-block w-100" style="max-height: 35rem" alt="...">
+          @foreach ($fasilitas as $item)
+         <div class="carousel-item {{ $loop->iteration === 1 ? 'active':'' }}">
+            <img src="{{ 'admin/images/'.$item->gambar }}" class="d-block w-100" style="max-height: 35rem" alt="...">
             <div class="carousel-caption d-none d-md-block">
-               <h5>Fitness Center</h5>
-               <p>Tempat untuk menjaga kesehatan tubuh Anda selama tinggal di hotel kami.</p>
+               <h5>{{ $item->nama_fasilitas }}</h5>
+               <p>{{ $item->deskripsi }}</p>
             </div>
          </div>
-         <div class="carousel-item">
-            <img src="images/gardenraw.png" class="d-block w-100" style="max-height: 35rem" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-               <h5>Second slide label</h5>
-               <p>Some representative placeholder content for the second slide.</p>
-            </div>
-         </div>
-         <div class="carousel-item">
-            <img src="images/swimmingpoolraw.png" class="d-block w-100" style="max-height: 35rem" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-               <h5>Third slide label</h5>
-               <p>Some representative placeholder content for the third slide.</p>
-            </div>
-         </div>
+         @endforeach
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
          data-bs-slide="prev">

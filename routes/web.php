@@ -50,6 +50,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('/fasilitas_hotel', FasilitasHotelController::class);
 
+    Route::get('/fasilitas_hotel_delete/{id}', [FasilitasHotelController::class, 'destroy']);
+
     //     Route::get('/dashboard_resepsionis', [ResepsionisController::class, 'show_dashboard_resepsionis']);
 
     Route::get('/ongoing', [FormController::class, 'ongoing']);
