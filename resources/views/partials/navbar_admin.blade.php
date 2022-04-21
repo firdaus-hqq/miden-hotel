@@ -2,7 +2,7 @@
    <nav class="navbar navbar-expand-lg navbar-light border-bottom bg-white">
       <div class="container-fluid">
          <a class="navbar-brand text-brown" href="/">
-            <img src="images/logo.png" width="30" height="30" alt="logo"
+            <img src="{{ URL::asset('images/logo.png') }}" width="30" height="30" alt="logo"
                class="d-inline-block align-text-top text-color-primary">
             <span class="text-brown"> <b> MIDEN </b>Hotel</span>
          </a>

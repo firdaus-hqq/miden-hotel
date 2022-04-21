@@ -11,7 +11,7 @@
                      aria-describedby="button-addon2">
                   <button class="btn btn-1 me-1" type="button" id="button-addon2">Cari</button>
                </div>
-               <a href="/kamar_admin_tambah" class="btn btn-1" type="button" id="button-addon2">+ Tambah Data</a>
+               <a href="/kamar_admin/create" class="btn btn-1" type="button" id="button-addon2">+ Tambah Data</a>
             </div>
          </div>
       </form>
@@ -47,7 +47,7 @@
                                  style="max-width: 150px">
                            </td>
                            <td>
-                              <a href="" class="btn btn-1 text-white rounded-10 col-10">Edit</a>
+                              <a href="/kamar_admin/{{ $kamar->id }}/edit" class="btn btn-1 text-white rounded-10 col-10">Edit</a>
                               <form action="/kamar_admin_delete/{{ $kamar->id }}" class="d-inline">
                                 @csrf
                                 <button type="submit" class="btn btn-2 text-brown rounded-10 mt-2"

@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/custom.css">
+    <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ URL::asset('css/custom.css') }}">
     @include('partials.title')
 </head>
 
@@ -23,6 +23,7 @@
         @yield('fasilitas_kamar')
         @yield('fasilitas_hotel')
         @yield('tambah_kamar')
+        @yield('edit_kamar')
     </div>
 
     @include('partials.footer_admin')

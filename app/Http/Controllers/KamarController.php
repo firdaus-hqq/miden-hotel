@@ -30,7 +30,7 @@ class KamarController extends Controller
     public function create()
     {
         return view('admin.tambah_kamar', [
-            "title" => "Kamar"
+            "title" => "Tambah Kamar"
         ]);
     }
 
@@ -42,30 +42,6 @@ class KamarController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->file('gambar')->store('admin');
-
-        // $validatedData = $request->validate([
-        //     'nama_tipe' => 'required',
-        //     'deskripsi' => 'required',
-        //     'harga' => 'required|integer',
-        //     'jumlah' => 'required|integer',
-        //     'gambar' => 'image|file'
-        // ]);
-
-        // if($request->hasFile('gambar')){
-        //     $request->validate([
-        //         'gambar' => 'mimes:jpeg,bmp,png'
-        //     ]);
-
-        //     $file = $request->file('gambar');
-
-        //     $gambar = date('YmdHi').$request->gambar;
-
-        //     $file->move(public_path('admin/images'), $gambar);
-
-        //     $validatedData['gambar'] = $gambar;
-        // }
-
         if ($request->hasFile('gambar')) {
             $file = $request->file('gambar');
             $filename = date('YmdHi') . $file->getClientOriginalName();
@@ -85,7 +61,6 @@ class KamarController extends Controller
             $file->move(public_path('admin/images'), $filename);
         }
 
-        // Kamar::create($validatedData);
         return redirect('/kamar_admin')->with('success', 'Tambah kamar berhasil!');
     }
 
@@ -108,7 +83,10 @@ class KamarController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.edit_kamar', [
+            "kamar" => Kamar::find($id),
+            "title" => "Edit Kamar"
+        ]);
     }
 
     /**
@@ -120,7 +98,28 @@ class KamarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $kamar = Kamar::find($id);
+        if($request->hasFile('gambar')){
+
+            $request->validate([
+                'gambar' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
+            ]);
+
+            $file = $request->file('gambar');
+            $filename = date('YmdHi').$file->getClientOriginalName();
+
+            $kamar->gambar = $filename;
+
+            $file->move(public_path('admin/images'), $filename);
+        }
+
+        $kamar->nama_tipe = $request->nama_tipe;
+        $kamar->deskripsi = $request->deskripsi;
+        $kamar->harga = $request->harga;
+        $kamar->jumlah = $request->jumlah;
+        $kamar->save();
+
+        return redirect('/kamar_admin')->with('success', 'Kamar berhasil diedit!');
     }
 
     /**
