@@ -16,7 +16,7 @@ class CreateForm extends Migration
         Schema::create('form', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('kamar_id');
-            $table->foreign('kamar_id')->references('id')->on('kamar');
+            $table->foreign('kamar_id')->references('id')->on('kamar')->onDelete('cascade');
             $table->date('tgl_checkin');
             $table->date('tgl_checkout');
             $table->integer('jumlah_kamar');

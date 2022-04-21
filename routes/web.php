@@ -44,6 +44,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/kamar_admin_tambah', [KamarController::class, 'create']);
 
+    Route::get('/kamar_admin_delete/{id}', [KamarController::class, 'destroy']);
+
     Route::post('/submit_kamar', [KamarController::class, 'store']);
 
     Route::resource('/fasilitas_kamar', FasilitasKamarController::class);

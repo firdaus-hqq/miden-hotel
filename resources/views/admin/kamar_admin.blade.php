@@ -48,7 +48,11 @@
                            </td>
                            <td>
                               <a href="" class="btn btn-1 text-white rounded-10 col-10">Edit</a>
-                              <a href="" class="btn btn-2 text-brown rounded-10 mt-2">Delete</a>
+                              <form action="/kamar_admin_delete/{{ $kamar->id }}" class="d-inline">
+                                @csrf
+                                <button type="submit" class="btn btn-2 text-brown rounded-10 mt-2"
+                                   onclick="return confirm('Apakah Anda yakin akan menghapus kamar ini?')">Hapus</button>
+                             </form>
                            </td>
                         </tr>
                      @endforeach
