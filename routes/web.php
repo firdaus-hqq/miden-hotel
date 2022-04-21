@@ -42,6 +42,10 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('/kamar_admin', KamarController::class);
 
+    Route::get('/kamar_admin_tambah', [KamarController::class, 'create']);
+
+    Route::post('/submit_kamar', [KamarController::class, 'store']);
+
     Route::resource('/fasilitas_kamar', FasilitasKamarController::class);
 
     Route::resource('/fasilitas_hotel', FasilitasHotelController::class);

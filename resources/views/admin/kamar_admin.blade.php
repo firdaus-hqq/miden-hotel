@@ -11,10 +11,15 @@
                      aria-describedby="button-addon2">
                   <button class="btn btn-1 me-1" type="button" id="button-addon2">Cari</button>
                </div>
-               <button class="btn btn-1" type="button" id="button-addon2">+ Tambah Data</button>
+               <a href="/kamar_admin_tambah" class="btn btn-1" type="button" id="button-addon2">+ Tambah Data</a>
             </div>
          </div>
       </form>
+      @if (session()->has('success'))
+         <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+         </div>
+      @endif
       <div class="card bg-cream rounded-20 mt-4">
          <div class="card-body">
             <table class="table table-hover table-responsive form-brown text-form-brown">
@@ -38,7 +43,7 @@
                            <td class="align-middle">{{ $kamar->harga }}</td>
                            <td class="align-middle">{{ $kamar->jumlah }}</td>
                            <td class="align-middle">
-                              <img src="images/{{ $kamar->gambar }}" class="img-fluid" alt=""
+                              <img src="admin/images/{{ $kamar->gambar }}" class="img-fluid" alt=""
                                  style="max-width: 150px">
                            </td>
                            <td>
