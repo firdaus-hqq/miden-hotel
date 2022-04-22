@@ -11,5 +11,11 @@ class FasilitasKamar extends Model
 
     protected $guarded = ['id'];
 
+    public function kamars()
+    {
+        // return $this->belongsTo(Kamar::class, );
+        return $this->belongsTo(Kamar::class, 'kamar_id');
+    }
+
     public $table = 'fasilitas_kamar';
 }

@@ -48,6 +48,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('/fasilitas_kamar', FasilitasKamarController::class);
 
+    Route::get('/fasilitas_kamar_delete/{id}', [FasilitasKamarController::class, 'destroy']);
+
     Route::resource('/fasilitas_hotel', FasilitasHotelController::class);
 
     Route::get('/fasilitas_hotel_delete/{id}', [FasilitasHotelController::class, 'destroy']);

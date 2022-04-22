@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\FasilitasKamar;
+use App\Models\Kamar;
 use Illuminate\Http\Request;
 
 class FasilitasKamarController extends Controller
@@ -30,7 +31,10 @@ class FasilitasKamarController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.tambah_fasilitas_kamar', [
+            'title' => 'Tambah Fasilitas Kamar',
+            'kamar' => Kamar::all()
+        ]);
     }
 
     /**
@@ -41,7 +45,15 @@ class FasilitasKamarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'kamar_id' => 'required',
+            'fasilitas' => 'required',
+            'jumlah' => 'required|integer'
+        ]);
+
+        FasilitasKamar::create($validatedData);
+
+        return redirect('/fasilitas_kamar')->with('success', 'Tambah fasilitas kamar berhasil!');
     }
 
     /**
@@ -63,7 +75,11 @@ class FasilitasKamarController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.edit_fasilitas_kamar', [
+            "fasilitas_kamar" => FasilitasKamar::find($id),
+            "kamar" => Kamar::all(),
+            "title" => "Edit Kamar"
+        ]);
     }
 
     /**
@@ -75,7 +91,14 @@ class FasilitasKamarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $fasilitas_kamar = FasilitasKamar::find($id);
+
+        $fasilitas_kamar->kamar_id = $request->kamar_id;
+        $fasilitas_kamar->fasilitas = $request->fasilitas;
+        $fasilitas_kamar->jumlah = $request->jumlah;
+        $fasilitas_kamar->save();
+
+        return redirect('/fasilitas_kamar')->with('success', 'Fasilitas kamar berhasil diedit!');
     }
 
     /**
@@ -86,6 +109,8 @@ class FasilitasKamarController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $fasilitas_kamar = FasilitasKamar::find($id);
+        $fasilitas_kamar->delete();
+        return redirect('/fasilitas_kamar')->with('success', 'Fasilitas kamar berhasil dihapus!');
     }
 }
