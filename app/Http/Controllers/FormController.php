@@ -19,7 +19,7 @@ class FormController extends Controller
     public function index()
     {
         return view('resepsionis.pending', [
-            'forms' => Form::where('status', 'menunggu')->latest()->filter(request(['search']))->get(),
+            'forms' => Form::where('status', 'menunggu')->order($order = request(['filter', 'order']))->filter(request(['search']))->get(),
             "title" => "Pending"
         ]);
     }
@@ -27,7 +27,7 @@ class FormController extends Controller
     public function ongoing()
     {
         return view('resepsionis.ongoing', [
-            'guests' => Form::where('status', 'checkin')->latest()->filter(request(['search']))->get(),
+            'guests' => Form::where('status', 'checkin')->order($order = request(['filter', 'order']))->filter(request(['search']))->get(),
             "title" => "On Going"
         ]);
     }
@@ -35,7 +35,7 @@ class FormController extends Controller
     public function history()
     {
         return view('resepsionis.history', [
-            'histories' => Form::where('status', 'checkout')->latest()->filter(request(['search']))->get(),
+            'histories' => Form::where('status', 'checkout')->order($order = request(['filter', 'order']))->filter(request(['search']))->get(),
             "title" => "History"
         ]);
     }

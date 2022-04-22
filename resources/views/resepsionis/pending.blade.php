@@ -8,14 +8,52 @@
             </div>
         @endif
         <form action="/pending" method="GET">
-            <div class="mb-3">
-                <label for="cari" class="form-label text-brown">Cari</label>
-                <div class="d-flex flex-row">
-                    <div class="d-flex flex-row">
-                        <input type="text" class="form-control rounded-10 form-brown me-1" name="search" id="cari"
-                            placeholder="Cari berdasarkan nama..." value="{{ request('search') }}">
-                        <button class="btn btn-1 me-1" type="submit" id="button-addon2">Cari</button>
-                    </div>
+            <div class="row mt-3">
+                <div class="col-lg-2">
+                    <label for="filter" class="form-label text-brown">Urut Berdasarkan</label>
+                    <select class="form-select form-brown rounded-10 text-brown" aria-label="filter" name="filter" id="filter">
+                        <option value="">
+                            @if (request('filter') == 'tgl_checkin')
+                                Tanggal Check In
+                            @elseif (request('filter') == 'tgl_checkout')
+                                Tanggal Check Out
+                            @else
+                                Pilih
+                            @endif
+                        </option>
+                        <option value="" disabled>---------------------</option>
+                        <option value="tgl_checkin">Tanggal Check In</option>
+                        <option value="tgl_checkout">Tanggal Check Out</option>
+                    </select>
+                </div>
+                <div class="col-lg-3">
+                    <label for="order" class="form-label text-brown">Urutan</label>
+                    <select class="form-select form-brown rounded-10 text-brown" aria-label="order" name="order" id="order">
+                        <option value="">
+                            @if (request('order') == 'desc')
+                                Berurutan Turun
+                            @elseif (request('order') == 'asc')
+                                Berurutan Naik
+                            @else
+                                Pilih
+                            @endif
+                        </option>
+                        <option value="" disabled>---------------------</option>
+                        <option value="desc">Berurutan Turun</option>
+                        <option value="asc">Berurutan Naik</option>
+                    </select>
+                </div>
+                <div class="col-lg-5">
+                    <label for="search" class="form-label text-brown">Pencarian</label>
+                    <input type="text" class="form-control form-brown rounded-10 text-brown" id="search" name="search" placeholder="Cari berdasarkan nama" value="{{ request('search') }}">
+                </div>
+                <div class="col-lg-2 mt-4 pt-1 mb-2">
+                    <button type="submit" class="btn btn-1">
+                        <img src="https://img.icons8.com/material-rounded/24/ffffff/search.png">
+                    </button>
+                    <a href="/pending" role="button" class="btn btn-1">
+                        <img src="https://img.icons8.com/material-rounded/24/ffffff/reset.png">
+                    </a>
                 </div>
             </div>
         </form>

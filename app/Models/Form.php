@@ -24,5 +24,11 @@ class Form extends Model
         }
     }
 
+    public function scopeOrder($query, array $order){
+        if(isset($order['filter']) && isset($order['order']) ? $order['filter'] && $order['order'] : false){
+            return $query->orderBy($order['filter'], $order['order']);
+        }
+    }
+
     public $table = "form";
 }
