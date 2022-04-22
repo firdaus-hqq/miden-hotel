@@ -60,14 +60,6 @@ class FormController extends Controller
      */
     public function store(Request $request)
     {
-        $tgl_checkin = $request->tgl_checkin;
-        $tgl_checkout = $request->tgl_checkout;
-        $datetime1 = new DateTime($tgl_checkin);
-        $datetime2 = new DateTime($tgl_checkout);
-        $jumlah_hari = $datetime1->diff($datetime2);
-        $days = $jumlah_hari->format('%a');
-        $harga = $days * $request->jumlah_kamar * 500000;
-
         $validatedData = $request->validate([
             'tgl_checkin' => 'required|date',
             'tgl_checkout' => 'required|date',
@@ -75,10 +67,9 @@ class FormController extends Controller
             'nama_tamu' => 'required',
             'email' => 'required',
             'no_telepon' => 'required|numeric',
-            'kamar_id' => 'required'
+            'kamar_id' => 'required',
+            'harga' => 'required'
         ]);
-
-        $validatedData['harga'] = $harga;
 
         Form::create($validatedData);
 
