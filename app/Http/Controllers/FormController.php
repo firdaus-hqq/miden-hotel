@@ -71,9 +71,11 @@ class FormController extends Controller
             'harga' => 'required'
         ]);
 
-        Form::create($validatedData);
+        $form = Form::create($validatedData);
 
-        return redirect('/resi')->with('success', 'Pemesanan berhasil! Silakan cetak resi untuk diberikan kepada resepsionis saat check in.');
+        if($form){
+            return redirect('/resi/'. $form->id)->with('success', 'Pemesanan berhasil! Silakan cetak resi untuk diberikan kepada resepsionis saat check in.');
+        }
     }
 
     /**

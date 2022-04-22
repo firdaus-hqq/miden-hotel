@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\FasilitasHotel;
 use App\Models\FasilitasKamar;
+use App\Models\Form;
 use App\Models\Kamar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -34,8 +35,11 @@ class TamuController extends Controller
         ]);
     }
 
-    public function show_resi()
+    public function show_resi($id)
     {
-        return view('resi');
+        $form = Form::findOrFail($id);
+        return view('resi', [
+            'form' => $form
+        ]);
     }
 }

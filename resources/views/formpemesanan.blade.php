@@ -106,17 +106,6 @@
     let checkin = document.querySelector('#tgl_checkin')
     let checkout = document.querySelector('#tgl_checkout')
 
-    function printForm(divName) {
-     var printContents = document.getElementById(divName).innerHTML;
-     var originalContents = document.body.innerHTML;
-
-     document.body.innerHTML = printContents;
-
-     window.print();
-
-     document.body.innerHTML = originalContents;
-}
-
     document.addEventListener('change', function(event){
         let harga = namaKamar.options[namaKamar.selectedIndex];
         let hargaKamar = harga.getAttribute('data-bs-harga');

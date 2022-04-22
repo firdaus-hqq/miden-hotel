@@ -35,7 +35,7 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::post('/submit_form', [FormController::class, 'store']);
 
-Route::get('/resi', [TamuController::class, 'show_resi']);
+Route::get('/resi/{id}', [TamuController::class, 'show_resi']);
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [AdminController::class, 'show_dashboard']);
