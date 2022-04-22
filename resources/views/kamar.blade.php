@@ -11,9 +11,9 @@
                     <p>{{ $kamar->deskripsi }}</p>
                     <p>Fasilitas:</p>
                     <ul>
-                        <li>Kasur Single</li>
-                        <li>TV 16"</li>
-                        <li>Bathub</li>
+                        @foreach ($fasilitas as $fasilitas)
+                            <li>{{ $fasilitas->jumlah > 1 ? $fasilitas->jumlah : '' }} {{ $fasilitas->fasilitas }}</li>
+                        @endforeach
                     </ul>
                 </div>
                 <h3 class="text-brown float-start col-lg-8 mt-2">Rp.{{ $kamar->harga }}/malam</h3>
