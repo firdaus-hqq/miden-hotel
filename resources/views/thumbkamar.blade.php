@@ -11,7 +11,7 @@
                         <p class="text-brown col-lg-7">{{ Str::limit($kamar->deskripsi, 200) }}</p>
                     </div>
                     <h3 class="text-brown mt-2">Rp.{{ $kamar->harga }}/malam</h3>
-                    <a href="/kamar" class="btn btn-2 mt-1">Selengkapnya</a>
+                    <a href="/kamar/{{ $kamar->id }}" class="btn btn-2 mt-1">Selengkapnya</a>
                     <a href="/form" class="btn btn-1 mt-1">RESERVASI SEKARANG</a>
                 </div>
             </div>

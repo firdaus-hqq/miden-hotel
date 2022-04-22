@@ -25,7 +25,7 @@ Route::get('/', [TamuController::class, 'show_beranda']);
 
 Route::get('/form', [FormController::class, 'create']);
 
-Route::get('/kamar', [TamuController::class, 'show_kamar']);
+Route::get('/kamar/{id}', [TamuController::class, 'show_kamar']);
 
 Route::get('/login', [LoginController::class, 'show_login'])->name('login')->middleware('guest');
 

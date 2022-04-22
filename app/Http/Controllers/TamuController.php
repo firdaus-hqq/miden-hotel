@@ -22,9 +22,13 @@ class TamuController extends Controller
         return view('formpemesanan');
     }
 
-    public function show_kamar()
+    public function show_kamar($id)
     {
-        return view('kamar');
+        $kamar = Kamar::find($id);
+
+        return view('kamar', [
+            'kamar' => $kamar
+        ]);
     }
 
     public function show_resi()
