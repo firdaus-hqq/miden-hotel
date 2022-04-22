@@ -18,5 +18,11 @@ class Form extends Model
         return $this->belongsTo(Kamar::class, 'kamar_id');
     }
 
+    public function scopeFilter($query, array $filters) {
+        if(isset($filters['search']) ? $filters['search'] : false) {
+            return $query->where('nama_tamu', 'like', '%' . $filters['search'] . '%');
+        }
+    }
+
     public $table = "form";
 }

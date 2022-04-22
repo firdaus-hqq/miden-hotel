@@ -19,7 +19,7 @@ class FormController extends Controller
     public function index()
     {
         return view('resepsionis.pending', [
-            'forms' => Form::where('status', 'menunggu')->get(),
+            'forms' => Form::where('status', 'menunggu')->latest()->filter(request(['search']))->get(),
             "title" => "Pending"
         ]);
     }
@@ -27,7 +27,7 @@ class FormController extends Controller
     public function ongoing()
     {
         return view('resepsionis.ongoing', [
-            'guests' => Form::where('status', 'checkin')->get(),
+            'guests' => Form::where('status', 'checkin')->latest()->filter(request(['search']))->get(),
             "title" => "On Going"
         ]);
     }
@@ -35,7 +35,7 @@ class FormController extends Controller
     public function history()
     {
         return view('resepsionis.history', [
-            'histories' => Form::where('status', 'checkout')->get(),
+            'histories' => Form::where('status', 'checkout')->latest()->filter(request(['search']))->get(),
             "title" => "History"
         ]);
     }
@@ -160,15 +160,15 @@ class FormController extends Controller
         return redirect('/history')->with('success', 'History berhasil dihapus!');
     }
 
-    public function cari(Request $request)
-    {
-        // menangkap data pencarian
-        $cari = $request->cari;
+    // public function cari(Request $request)
+    // {
+    //     // menangkap data pencarian
+    //     $cari = $request->cari;
 
-        // mengambil data dari table form sesuai pencarian data
-        $form = Form::where('status', 'menunggu' and 'nama_tamu', 'like', "%" . $cari . "%")->paginate();
+    //     // mengambil data dari table form sesuai pencarian data
+    //     $form = Form::where('status', 'menunggu' and 'nama_tamu', 'like', "%" . $cari . "%")->paginate();
 
-        // mengirim data form ke view index
-        return view('resepsionis.pending', ['form' => $form]);
-    }
+    //     // mengirim data form ke view index
+    //     return view('resepsionis.pending', ['form' => $form]);
+    // }
 }
