@@ -11,15 +11,17 @@ class AdminController extends Controller
 {
     public function show_dashboard()
     {
+        $kamarAll = Kamar::all();
+
         return view(
             'admin/dashboard',
             [
                 "title" => "Dashboard",
-                'kamar' => Kamar::all(),
+                'kamar' => $kamarAll->sum('jumlah'),
                 'fasilitas' => FasilitasHotel::all(),
                 'ongoing' => Form::where('status', 'checkin')->get(),
                 'history' => Form::where('status', 'checkout')->get(),
-                'available' => count(Kamar::all()) - count(Form::where('status', 'checkin')->get())
+                'available' => $kamarAll->sum('jumlah') - count(Form::where('status', 'checkin')->get())
             ]
         );
     }
